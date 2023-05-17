@@ -15,9 +15,9 @@ export function Estilo() {
 
 // Configurando o styled-component Container
 const Container = styled.div`
-  background-color: red;
-  width: 100%;
-  height: 100%;
+  background-color: #FB6B6B;
+  width: 100vw;
+  height: 100vh;
 
   #btn1{
     background-color: yellow;
