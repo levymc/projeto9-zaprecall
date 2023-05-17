@@ -7,13 +7,24 @@ import cards from './components/cards'
 
 function App() {
 
+  let [resolvidos, setResolvidos] = useState(0)
+
   return (
     <>
       <GlobalStyle />
       <Container>
+
         <Logo />
-        <Button cards={cards}/>
-        <Footer />
+
+        <Button 
+          cards = {cards}
+        />
+        
+        <Footer 
+          resolvidos = {resolvidos}
+          cards = {cards}
+        />
+
       </Container>
     </>
   );
@@ -42,5 +53,5 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   overflow-y: auto; overflow-x: hidden;
-  
+
 `;
