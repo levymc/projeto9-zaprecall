@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Button from "./components/Button";
+import Logo from './components/Logo';
 import cards from './components/cards'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
+        <Logo />
         <Button cards={cards}/>
       </Container>
     </>
@@ -20,11 +22,12 @@ export default App;
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Righteous';
-    src: url('./assets/fonts/Righteous-Regular.ttf');
+    src: './assets/fonts/Righteous-Regular.ttf';
   }
 
-  body {
+  * {
     font-family: 'Righteous', sans-serif;
+    box-sizing: border-box;
   }
 `;
 

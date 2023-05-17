@@ -10,7 +10,7 @@ export default function Button(props) {
 
     return (
         props.cards.map((card, i) => (
-        <SCButton onClick={funcBtn1}>
+        <SCButton key={i} onClick={funcBtn1}>
             <div>Pergunta {i+1}</div>
             <SCCanto><img src={play} alt="" /></SCCanto>
         </SCButton>
