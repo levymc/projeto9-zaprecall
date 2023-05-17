@@ -9,7 +9,9 @@ function App() {
 
   return (
     <>
-      <Estilo></Estilo>
+      <Estilo>
+
+      </Estilo>
     </>
   )
 }
