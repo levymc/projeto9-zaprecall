@@ -11,7 +11,6 @@ export default function Button(props) {
         const updatedFases = [...fase];
         updatedFases[i] = 2;
         setFase(updatedFases);
-        alert("Oi")
     }
 
     return (
@@ -53,6 +52,16 @@ const SCButton2 = styled.div`
     height: 8.1875em;
     width: 18.75em;
     background-color: #FFFFD5;
+    border-radius: 3px;
+    color: #000000;
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display:flex;
+    position: relative;
 `
 
 const SCCanto = styled.section`
