@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Button from "./components/Button";
-import Logo from './components/Logo';
+import Topo from './components/Topo';
 import Footer from './components/Footer';
 import cards from './components/cards'
 
@@ -14,7 +14,7 @@ function App() {
       <GlobalStyle />
       <Container>
 
-        <Logo />
+        <Topo />
 
         <Button 
           cards = {cards}

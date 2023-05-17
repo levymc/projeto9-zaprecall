@@ -1,19 +1,19 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import raio from "../assets/img/raio.svg"
 
-export default function Logo(){
+export default function Topo(){
     return (
-        <SCLogo>
+        <SCTopo>
             <img src={raio} alt="ThunderZap" />
             <h2>ZapRecall</h2>
-        </SCLogo>
+        </SCTopo>
     )
 }
 
-const SCLogo = styled.div`
+const SCTopo = styled.div`
     padding-top: 1em; padding-bottom: 0.5em;
     display:flex;
-    gap: 1em;
+    gap: 0.7em;
     align-items: center;
     font-family: 'Righteous';
     font-style: normal;
