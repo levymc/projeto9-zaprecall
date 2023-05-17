@@ -1,25 +1,37 @@
 import styled from 'styled-components';
 import play from '../assets/img/play.svg'
+import { useState } from 'react';
 
 export default function Button(props) {
 
-    let funcBtn1 = () => {
-        console.log(props.cards)
+    const [fase, setFase] = useState(props.cards.map(() => 1))
+
+    let funcBtn1 = (card, i) => {
+        console.log(card)
+        const updatedFases = [...fase];
+        updatedFases[i] = 2;
+        setFase(updatedFases);
         alert("Oi")
     }
 
     return (
         props.cards.map((card, i) => (
-        <SCButton key={i} onClick={funcBtn1}>
-            <div>Pergunta {i+1}</div>
-            <SCCanto><img src={play} alt="" /></SCCanto>
-        </SCButton>
+            fase[i] == 1 ?
+                <SCButton1 key={i} onClick={() => {funcBtn1(card, i)}}>
+                    <div>Pergunta {i+1}</div>
+                    <SCCanto><img src={play} alt="" /></SCCanto>
+                </SCButton1>
+            : fase[i] == 2 ?
+                <SCButton2>
+                    {card.question}
+                </SCButton2>
+            : null
         
         ))
     );
 }
 
-const SCButton = styled.div`
+const SCButton1 = styled.div`
     background: #FFFFFF;
     border: 2px solid #FFFFFF;
     border-radius: 3px;
@@ -36,6 +48,12 @@ const SCButton = styled.div`
     align-items: center;
     position: relative;
 `;
+
+const SCButton2 = styled.div`
+    height: 8.1875em;
+    width: 18.75em;
+    background-color: #FFFFD5;
+`
 
 const SCCanto = styled.section`
     position: absolute;
