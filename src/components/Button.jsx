@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import play from '../assets/img/play.svg'
+import returnIcon from '../assets/img/returnIcon.svg'
 import { useState } from 'react';
 
 export default function Button(props) {
@@ -17,12 +18,13 @@ export default function Button(props) {
         props.cards.map((card, i) => (
             fase[i] == 1 ?
                 <SCButton1 key={i} onClick={() => {funcBtn1(card, i)}}>
-                    <div>Pergunta {i+1}</div>
+                    <h2>Pergunta {i+1}</h2>
                     <SCCanto><img src={play} alt="" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
                 <SCButton2>
-                    {card.question}
+                    <h2>{card.question}</h2>
+                    <img src={returnIcon} alt="" />
                 </SCButton2>
             : null
         
@@ -46,6 +48,15 @@ const SCButton1 = styled.div`
     display:flex;
     align-items: center;
     position: relative;
+    
+    h2{
+        font-family: 'Recursive';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #333333;
+    }
 `;
 
 const SCButton2 = styled.div`

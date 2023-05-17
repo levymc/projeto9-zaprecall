@@ -9,6 +9,7 @@ export default function Footer(props){
 }
 
 const SCFooter = styled.div`
+    margin-top: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
