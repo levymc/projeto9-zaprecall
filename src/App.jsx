@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Button from "./components/Button";
 import Logo from './components/Logo';
+import Footer from './components/Footer';
 import cards from './components/cards'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Container>
         <Logo />
         <Button cards={cards}/>
+        <Footer />
       </Container>
     </>
   );
@@ -33,11 +35,12 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   background-color: #FB6B6B;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
+  overflow-y: auto; overflow-x: hidden;
+  
 `;
