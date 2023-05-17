@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import play from '../assets/img/play.svg'
 import virar from '../assets/img/returnIcon.svg'
+import BtnFase3 from './BtnFase3';
 import { useState } from 'react';
 
 export default function Button(props) {
@@ -14,6 +15,12 @@ export default function Button(props) {
         setFase(updatedFases);
     }
 
+    let funcVirar = (card, i) => {
+        const updatedFases = [...fase];
+        updatedFases[i] = 3;
+        setFase(updatedFases);
+    }
+
     return (
         props.cards.map((card, i) => (
             fase[i] == 1 ?
@@ -24,8 +31,14 @@ export default function Button(props) {
             : fase[i] == 2 ?
                 <SCButton2>
                     <h2>{card.question}</h2>
-                    <img src={virar} alt="" />
+                    <img onClick={() => {funcVirar(card, i)}} src={virar} alt="" />
                 </SCButton2>
+
+            : fase[i] == 3 ?
+                <SCButton3>
+                    <h2>{card.answer}</h2>
+                    <BtnFase3 />
+                </SCButton3>
             : null
         
         ))
@@ -85,6 +98,29 @@ const SCButton2 = styled.div`
         position: absolute;
         right: 1em;
         bottom: 1em;
+    }
+`
+
+const SCButton3 = styled.div`
+    height: 8.1875em;
+    width: 18.75em;
+    background-color: #FFFFD5;
+    border-radius: 3px;
+    color: #000000;
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display:flex;
+    position: relative;
+    h2{
+        font-family: 'Recursive';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: #333333;
     }
 `
 
