@@ -20,8 +20,9 @@ export default function BtnFase3(props){
         <>
             {infos.map((info, i) => (
                 <StyleBtn3
-                    key={i} 
-                    id={i}
+                    key = {i} 
+                    id = {i}
+                    respostas = {props.respostas}
                     onClick={() => {
                         props.setRespostas(i + 1)
                         console.log(props.respostas)
@@ -36,13 +37,12 @@ export default function BtnFase3(props){
 
 const StyleBtn3 = styled.button`
     padding: 0.75em 1.5em;
-    color: white;
-    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
 
     ${(props) => props.id === 0 && `
         background-color: #FF3030;

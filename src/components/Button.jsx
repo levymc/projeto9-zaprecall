@@ -16,6 +16,7 @@ export default function Button(props) {
     }
 
     let funcVirar = (card, i) => {
+        console.log(props.respostas[i])
         const updatedFases = [...fase];
         updatedFases[i] = 3;
         setFase(updatedFases);
@@ -24,23 +25,27 @@ export default function Button(props) {
     return (
         props.cards.map((card, i) => (
             fase[i] == 1 ?
-                <SCButton1 key={i} onClick={() => {funcBtn1(card, i)}}>
+                <SCButton1 
+                    key={i} 
+                    onClick={() => {funcBtn1(card, i)}}
+                    resposta={props.resposta}
+                    >
                     <h2>Pergunta {i+1}</h2>
                     <SCCanto><img src={play} alt="" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
-                <SCButton2>
+                <SCButton2 key={i}>
                     <h2>{card.question}</h2>
                     <img onClick={() => {funcVirar(card, i)}} src={virar} alt="" />
                 </SCButton2>
 
             : fase[i] == 3 ?
-                <SCButton3>
+                <SCButton3 key={i}>
                     <h2>{card.answer}</h2>
                     <SCFlex>
                         <BtnFase3 
                             setRespostas = {props.setRespostas}
-                            respostas = {props.respostas}
+                            resposta = {props.respostas[i]}
                         />
                     </SCFlex>
                 </SCButton3>
@@ -54,7 +59,6 @@ const SCButton1 = styled.div`
     background: #FFFFFF;
     border: 2px solid #FFFFFF;
     border-radius: 3px;
-    color: #000000;
     font-size: 1.2rem;
     margin: 1rem;
     padding: 1rem 1.5rem;
@@ -67,13 +71,17 @@ const SCButton1 = styled.div`
     align-items: center;
     position: relative;
     
+    
     h2{
         font-family: 'Recursive';
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #333333;
+        ${(props) => props.resposta === 4 && `
+            color: red;
+            font-style: normal;
+        `}
     }
 `;
 
