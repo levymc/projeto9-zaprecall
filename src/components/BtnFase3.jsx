@@ -6,15 +6,12 @@ export default function BtnFase3(){
     const infos = [
         {
             frase: "Não lembrei",
-            cor: "#FF3030"
         },
         {
             frase: "Quase não lembrei",
-            cor: "#FF922E"
         },
         {
             frase: "Zap!",
-            cor: "#2FBE34"
         },
         
     ]
@@ -29,11 +26,27 @@ export default function BtnFase3(){
 }
 
 const StyleBtn3 = styled.button`
-    ${(props) => props.id === 1 && `
-    background-color: red;
-  `}
+    padding: 0.75em 1.5em;
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 5px;
+    cursor: pointer;
 
+    ${(props) => props.id === 0 && `
+        background-color: #FF3030;
+        border: 1px solid #FF3030;
+    `}
+
+    ${(props) => props.id === 1 && `
+        background-color: #FF922E;
+        border: 1px solid #FF922E;
+    `}
+    
     ${(props) => props.id === 2 && `
-        background-color: blue;
+        background-color: #2FBE34;
+        border: 1px solid #2FBE34;
     `}
     `
