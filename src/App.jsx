@@ -9,6 +9,8 @@ function App() {
 
   let [resolvidos, setResolvidos] = useState(0)
 
+  let [respostas, setRespostas] = useState(cards.map(() => 4))
+
   return (
     <>
       <GlobalStyle />
