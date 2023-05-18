@@ -37,7 +37,7 @@ export default function Button(props) {
             : fase[i] == 3 ?
                 <SCButton3>
                     <h2>{card.answer}</h2>
-                    <BtnFase3 />
+                    <SCFlex><BtnFase3 /></SCFlex>
                 </SCButton3>
             : null
         
@@ -113,6 +113,8 @@ const SCButton3 = styled.div`
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     display:flex;
+    flex-direction: column;
+    justify-content: space-around;
     position: relative;
     h2{
         font-family: 'Recursive';
@@ -122,6 +124,15 @@ const SCButton3 = styled.div`
         line-height: 22px;
         color: #333333;
     }
+    BtnFase3{
+        display: flex;
+        flex-direction: row;
+    }
+`
+
+const SCFlex = styled.div`
+    display: flex;
+    gap: 0.5em;
 `
 
 const SCCanto = styled.section`
