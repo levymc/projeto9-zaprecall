@@ -37,7 +37,12 @@ export default function Button(props) {
             : fase[i] == 3 ?
                 <SCButton3>
                     <h2>{card.answer}</h2>
-                    <SCFlex><BtnFase3 /></SCFlex>
+                    <SCFlex>
+                        <BtnFase3 
+                            setRespostas = {props.setRespostas}
+                            respostas = {props.respostas}
+                        />
+                    </SCFlex>
                 </SCButton3>
             : null
         

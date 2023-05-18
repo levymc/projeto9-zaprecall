@@ -20,6 +20,8 @@ function App() {
 
         <Button 
           cards = {cards}
+          setRespostas = {setRespostas}
+          respostas = {respostas}
         />
         
         <Footer 

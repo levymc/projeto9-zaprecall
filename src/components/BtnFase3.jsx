@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-export default function BtnFase3(){
+export default function BtnFase3(props){
 
     const infos = [
         {
@@ -19,7 +19,16 @@ export default function BtnFase3(){
     return (
         <>
             {infos.map((info, i) => (
-                <StyleBtn3 key={i} id={i}>{info.frase}</StyleBtn3>
+                <StyleBtn3
+                    key={i} 
+                    id={i}
+                    onClick={() => {
+                        props.setRespostas(i + 1)
+                        console.log(props.respostas)
+                    }}
+                    >
+                    {info.frase}
+                </StyleBtn3>
             ))}
         </>
     )
