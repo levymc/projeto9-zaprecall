@@ -9,7 +9,7 @@ function App() {
 
   let [resolvidos, setResolvidos] = useState(0)
 
-  let [respostas, setRespostas] = useState(cards.map(() => 4))
+  let [status, setRespostas] = useState(cards.map(() => 'jogo'))
 
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
         <Button 
           cards = {cards}
           setRespostas = {setRespostas}
-          respostas = {respostas}
+          status = {status}
           data-test = "flashcard"
         />
         

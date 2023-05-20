@@ -6,18 +6,38 @@ export default function BtnFase3(props){
     const infos = [
         {
             frase: "Não lembrei",
-            dataTest: "no-btn"
+            dataTest: "no-btn",
+            status: "incorreto",
         },
         {
             frase: "Quase não lembrei",
-            dataTest: "partial-btn"
+            dataTest: "partial-btn",
+            status: "quase",
         },
         {
             frase: "Zap!",
-            dataTest: "zap-btn"
+            dataTest: "zap-btn",
+            status: "correto",
         },
         
     ]
+
+    const alterarFase = (index, novoValor) => {
+        props.setFase(prevFase => {
+          const novoArray = [...prevFase]; // Cria uma cópia do array de estado atual
+          novoArray[index] = novoValor; // Atualiza o elemento desejado no novo array
+          console.log(novoArray)
+          return novoArray; // Retorna o novo array como o novo estado
+        });
+      };
+    const alterarStatus = (index, novoValor) => {
+        props.setRespostas(prevStatus => {
+          const novoArray = [...prevStatus]; // Cria uma cópia do array de estado atual
+          novoArray[index] = novoValor; // Atualiza o elemento desejado no novo array
+          console.log(novoArray)
+          return novoArray; // Retorna o novo array como o novo estado
+        });
+      };
 
     return (
         <>
@@ -25,11 +45,12 @@ export default function BtnFase3(props){
                 <StyleBtn3
                     key = {i} 
                     id = {i}
-                    respostas = {props.respostas}
+                    status = {info.status}
                     data-test = {props.dataTest}
                     onClick={() => {
-                        props.setRespostas(i + 1)
-                        console.log(props.respostas)
+                        alterarStatus(props.cardIndex,info.status)
+                        alterarFase(props.cardIndex, 1)
+                        console.log(info.status)
                     }}
                     >
                     {info.frase}

@@ -16,7 +16,7 @@ export default function Button(props) {
     }
 
     let funcVirar = (card, i) => {
-        console.log(props.respostas[i])
+        console.log(props.status[i])
         const updatedFases = [...fase];
         updatedFases[i] = 3;
         setFase(updatedFases);
@@ -28,15 +28,27 @@ export default function Button(props) {
                 <SCButton1
                     data-test="flashcard" 
                     key={i} 
-                    resposta={props.resposta}
+                    status={props.status}
                     >
-                    <h2  data-test="flashcard-text" >Pergunta {i+1}</h2>
-                    <SCCanto><img onClick={() => {funcBtn1(card, i)}} data-test="play-btn" src={play} alt="btnFase1" /></SCCanto>
+                    <SCflashCardText
+                        onClick={() => {console.log(props.status)}}
+                        data-test="flashcard-text"
+                        status={props.status[i]}
+                        cards={props.cards}
+                        index={i}
+                    >
+                        Pergunta {i+1}
+                    </SCflashCardText>
+
+
+                    <SCCanto><img onClick={() => {funcBtn1(card, i)}} index={i} data-test="play-btn" src={play} alt="btnFase1" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
                 <SCButton2 key={i}>
                     <h2 data-test="flashcard-text" >{card.question}</h2>
-                    <img data-test="turn-btn" onClick={() => {funcVirar(card, i)}} src={virar} alt="TurnBtn" />
+                    <img data-test="turn-btn" onClick={() => {
+                        funcVirar(card, i)
+                    }} src={virar} alt="TurnBtn" />
                 </SCButton2>
 
             : fase[i] == 3 ?
@@ -44,8 +56,11 @@ export default function Button(props) {
                     <h2 data-test="flashcard-text" >{card.answer}</h2>
                     <SCFlex>
                         <BtnFase3 
+                            cardIndex = {i}
+                            fase = {fase}
+                            setFase = {setFase}
                             setRespostas = {props.setRespostas}
-                            resposta = {props.respostas[i]}
+                            status = {props.status[i]}
                         />
                     </SCFlex>
                 </SCButton3>
@@ -54,6 +69,18 @@ export default function Button(props) {
         ))
     );
 }
+
+const SCflashCardText = styled.h2`
+  color: ${(props) => {
+    if (props.status === 'correto') {
+      return 'green'; // Define a cor como verde para status 'correto'
+    } else if (props.status === 'incorreto') {
+      return 'red'; // Define a cor como vermelho para status 'incorreto'
+    } else {
+      return 'black'; // Define a cor como preto para qualquer outro status
+    }
+  }};
+`;
 
 const SCButton1 = styled.div`
     background: #FFFFFF;
@@ -79,7 +106,7 @@ const SCButton1 = styled.div`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        ${(props) => props.resposta === 4 && `
+        ${(props) => props.status === 4 && `
             color: red;
             font-style: normal;
         `}
