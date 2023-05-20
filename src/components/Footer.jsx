@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export default function Footer(props){
     return (
-        <SCFooter>
+        <SCFooter data-test="footer">
             <h2>{props.resolvidos}/{props.cards.length} Concluídos</h2>
         </SCFooter>
     )

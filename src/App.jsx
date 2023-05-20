@@ -22,6 +22,7 @@ function App() {
           cards = {cards}
           setRespostas = {setRespostas}
           respostas = {respostas}
+          data-test = "flashcard"
         />
         
         <Footer 

@@ -6,12 +6,15 @@ export default function BtnFase3(props){
     const infos = [
         {
             frase: "Não lembrei",
+            dataTest: "no-btn"
         },
         {
             frase: "Quase não lembrei",
+            dataTest: "partial-btn"
         },
         {
             frase: "Zap!",
+            dataTest: "zap-btn"
         },
         
     ]
@@ -23,6 +26,7 @@ export default function BtnFase3(props){
                     key = {i} 
                     id = {i}
                     respostas = {props.respostas}
+                    data-test = {props.dataTest}
                     onClick={() => {
                         props.setRespostas(i + 1)
                         console.log(props.respostas)
@@ -42,7 +46,7 @@ const StyleBtn3 = styled.button`
     line-height: 14px;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
+    color: white;   
 
     ${(props) => props.id === 0 && `
         background-color: #FF3030;
