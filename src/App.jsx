@@ -11,6 +11,8 @@ function App() {
 
   let [status, setRespostas] = useState(cards.map(() => 'jogo'))
 
+  let [btnDesabilitado, setBtnDesabilitado] = useState(cards.map(() => false))
+
   return (
     <>
       <GlobalStyle />
@@ -19,10 +21,14 @@ function App() {
         <Topo />
 
         <Button 
+          btnDesabilitado = {btnDesabilitado}
+          setBtnDesabilitado = {setBtnDesabilitado}
           cards = {cards}
           setRespostas = {setRespostas}
           status = {status}
           data-test = "flashcard"
+          resolvidos = {resolvidos}
+          setResolvidos = {setResolvidos}
         />
         
         <Footer 

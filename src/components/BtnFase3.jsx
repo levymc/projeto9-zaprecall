@@ -39,6 +39,15 @@ export default function BtnFase3(props){
         });
       };
 
+    const desabilitaButton = (index, novoValor) => {
+        props.setBtnDesabilitado(prevStatus => {
+          const novoArray = [...prevStatus]; // Cria uma cópia do array de estado atual
+          novoArray[index] = novoValor; // Atualiza o elemento desejado no novo array
+          console.log(novoArray)
+          return novoArray; // Retorna o novo array como o novo estado
+        });
+      };
+
     return (
         <>
             {infos.map((info, i) => (
@@ -48,8 +57,10 @@ export default function BtnFase3(props){
                     status = {info.status}
                     data-test = {props.dataTest}
                     onClick={() => {
-                        alterarStatus(props.cardIndex,info.status)
+                        alterarStatus(props.cardIndex, info.status)
                         alterarFase(props.cardIndex, 1)
+                        desabilitaButton(props.cardIndex, true)
+                        props.setResolvidos(props.resolvidos+1)
                         console.log(info.status)
                     }}
                     >

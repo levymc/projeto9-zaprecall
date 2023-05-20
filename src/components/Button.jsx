@@ -26,6 +26,7 @@ export default function Button(props) {
         props.cards.map((card, i) => (
             fase[i] == 1 ?
                 <SCButton1
+                    
                     data-test="flashcard" 
                     key={i} 
                     status={props.status}
@@ -41,7 +42,13 @@ export default function Button(props) {
                     </SCflashCardText>
 
 
-                    <SCCanto><img onClick={() => {funcBtn1(card, i)}} index={i} data-test="play-btn" src={play} alt="btnFase1" /></SCCanto>
+                    <SCCanto><img  onClick={() => {
+                        if(!props.btnDesabilitado[i]){funcBtn1(card, i)}
+                        }} 
+                        index={i} 
+                        data-test="play-btn" 
+                        src={play} 
+                        alt="btnFase1" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
                 <SCButton2 key={i}>
@@ -56,6 +63,9 @@ export default function Button(props) {
                     <h2 data-test="flashcard-text" >{card.answer}</h2>
                     <SCFlex>
                         <BtnFase3 
+                            setBtnDesabilitado = {props.setBtnDesabilitado}
+                            resolvidos = {props.resolvidos}
+                            setResolvidos = {props.setResolvidos}
                             cardIndex = {i}
                             fase = {fase}
                             setFase = {setFase}
