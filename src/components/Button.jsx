@@ -76,10 +76,14 @@ const SCflashCardText = styled.h2`
       return 'green'; // Define a cor como verde para status 'correto'
     } else if (props.status === 'incorreto') {
       return 'red'; // Define a cor como vermelho para status 'incorreto'
+    } else if (props.status === 'quase'){
+        return 'orange'
     } else {
       return 'black'; // Define a cor como preto para qualquer outro status
-    }
+    };
   }};
+
+    text-decoration: ${(props) => (props.status === 'jogo' ? 'none' : 'line-through')};
 `;
 
 const SCButton1 = styled.div`
