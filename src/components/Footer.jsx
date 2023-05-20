@@ -14,6 +14,8 @@ const SCFooter = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
     width: 100vw;
     height: 4.37500em;
     h2{
