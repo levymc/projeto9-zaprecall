@@ -4,13 +4,29 @@ export default function Footer(props){
     return (
         <SCFooter data-test="footer">
             <h2>{props.resolvidos}/{props.cards.length} Concluídos</h2>
+
+            <SCImgs>
+                {props.iconsStatus.map((icon, i) => {
+                    if(icon != "/src/assets/img/play.svg"){
+                        return <img src={icon} alt="" />
+                    }
+                })}
+            </SCImgs>
+            
         </SCFooter>
     )
 }
 
+const SCImgs = styled.div`
+    display: flex;
+    gap: 0.25em;
+`
+
 const SCFooter = styled.div`
     margin-top: 2em;
     display: flex;
+    gap: 0.5em;
+    flex-direction:column;
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;

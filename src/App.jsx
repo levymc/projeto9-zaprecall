@@ -40,6 +40,7 @@ function App() {
         <Footer 
           resolvidos = {resolvidos}
           cards = {cards}
+          iconsStatus = {iconsStatus}
         />
 
       </Container>
