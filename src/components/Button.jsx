@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import play from '../assets/img/play.svg'
+import incorrectIcon from '../assets/img/incorrectIcon.svg'
+import correctIcon from '../assets/img/correctIcon.svg'
+import unknowIcon from '../assets/img/unknowIcon.svg'
 import virar from '../assets/img/returnIcon.svg'
 import BtnFase3 from './BtnFase3';
 import { useState } from 'react';
@@ -47,7 +50,7 @@ export default function Button(props) {
                         }} 
                         index={i} 
                         data-test="play-btn" 
-                        src={play} 
+                        src={props.status[i] === 'jogo' ? play : props.status[i] === 'incorreto' ? incorrectIcon : props.status[i] === 'correto' ? correctIcon : props.status[i] === 'quase' ? unknowIcon : null} 
                         alt="btnFase1" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
