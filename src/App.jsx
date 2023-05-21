@@ -4,6 +4,8 @@ import Button from "./components/Button";
 import Topo from './components/Topo';
 import Footer from './components/Footer';
 import cards from './components/cards'
+import play from './assets/img/play.svg'
+
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
   let [status, setRespostas] = useState(cards.map(() => 'jogo'))
 
   let [btnDesabilitado, setBtnDesabilitado] = useState(cards.map(() => false))
+
+  let [iconsStatus, setIconsStatus] = useState(cards.map(() => play))
 
   return (
     <>
@@ -29,6 +33,8 @@ function App() {
           data-test = "flashcard"
           resolvidos = {resolvidos}
           setResolvidos = {setResolvidos}
+          iconsStatus = {iconsStatus}
+          setIconsStatus = {setIconsStatus}
         />
         
         <Footer 

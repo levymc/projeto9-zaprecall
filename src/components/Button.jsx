@@ -1,8 +1,4 @@
 import styled from 'styled-components';
-import play from '../assets/img/play.svg'
-import incorrectIcon from '../assets/img/incorrectIcon.svg'
-import correctIcon from '../assets/img/correctIcon.svg'
-import unknowIcon from '../assets/img/unknowIcon.svg'
 import virar from '../assets/img/returnIcon.svg'
 import BtnFase3 from './BtnFase3';
 import { useState } from 'react';
@@ -50,7 +46,7 @@ export default function Button(props) {
                         }} 
                         index={i} 
                         data-test="play-btn" 
-                        src={props.status[i] === 'jogo' ? play : props.status[i] === 'incorreto' ? incorrectIcon : props.status[i] === 'correto' ? correctIcon : props.status[i] === 'quase' ? unknowIcon : null} 
+                        src={props.iconsStatus[i]} 
                         alt="btnFase1" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
@@ -66,6 +62,7 @@ export default function Button(props) {
                     <h2 data-test="flashcard-text" >{card.answer}</h2>
                     <SCFlex>
                         <BtnFase3 
+                            setIconsStatus = {props.setIconsStatus}
                             setBtnDesabilitado = {props.setBtnDesabilitado}
                             resolvidos = {props.resolvidos}
                             setResolvidos = {props.setResolvidos}

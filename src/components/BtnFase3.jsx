@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import incorrectIcon from '../assets/img/incorrectIcon.svg'
+import correctIcon from '../assets/img/correctIcon.svg'
+import unknowIcon from '../assets/img/unknowIcon.svg'
 
 export default function BtnFase3(props){
 
@@ -8,16 +11,19 @@ export default function BtnFase3(props){
             frase: "Não lembrei",
             dataTest: "no-btn",
             status: "incorreto",
+            icon: incorrectIcon,
         },
         {
             frase: "Quase não lembrei",
             dataTest: "partial-btn",
             status: "quase",
+            icon: unknowIcon,
         },
         {
             frase: "Zap!",
             dataTest: "zap-btn",
             status: "correto",
+            icon: correctIcon,
         },
         
     ]
@@ -32,19 +38,27 @@ export default function BtnFase3(props){
       };
     const alterarStatus = (index, novoValor) => {
         props.setRespostas(prevStatus => {
-          const novoArray = [...prevStatus]; // Cria uma cópia do array de estado atual
-          novoArray[index] = novoValor; // Atualiza o elemento desejado no novo array
-          console.log(novoArray)
-          return novoArray; // Retorna o novo array como o novo estado
+          const novoArray = [...prevStatus];
+          novoArray[index] = novoValor;
+        //   console.log(novoArray)
+          return novoArray;
         });
       };
 
     const desabilitaButton = (index, novoValor) => {
         props.setBtnDesabilitado(prevStatus => {
-          const novoArray = [...prevStatus]; // Cria uma cópia do array de estado atual
-          novoArray[index] = novoValor; // Atualiza o elemento desejado no novo array
+          const novoArray = [...prevStatus]; 
+          novoArray[index] = novoValor; 
+        //   console.log(novoArray)
+          return novoArray; 
+        });
+      };
+    const alteraIcon = (index, novoValor) => {
+        props.setIconsStatus(prevStatus => {
+          const novoArray = [...prevStatus];
+          novoArray[index] = novoValor;
           console.log(novoArray)
-          return novoArray; // Retorna o novo array como o novo estado
+          return novoArray;
         });
       };
 
@@ -60,6 +74,7 @@ export default function BtnFase3(props){
                         alterarStatus(props.cardIndex, info.status)
                         alterarFase(props.cardIndex, 1)
                         desabilitaButton(props.cardIndex, true)
+                        alteraIcon(props.cardIndex, info.icon)
                         props.setResolvidos(props.resolvidos+1)
                         console.log(info.status)
                     }}
