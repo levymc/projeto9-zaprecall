@@ -12,6 +12,7 @@ export default function Button(props) {
         const updatedFases = [...fase];
         updatedFases[i] = 2;
         setFase(updatedFases);
+
     }
 
     let funcVirar = (card, i) => {
@@ -63,6 +64,7 @@ export default function Button(props) {
                     <SCFlex>
                         <BtnFase3 
                             setIconsStatus = {props.setIconsStatus}
+                            setIconsStatusFooter = {props.setIconsStatusFooter}
                             setBtnDesabilitado = {props.setBtnDesabilitado}
                             resolvidos = {props.resolvidos}
                             setResolvidos = {props.setResolvidos}

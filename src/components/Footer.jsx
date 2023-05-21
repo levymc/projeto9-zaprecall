@@ -6,9 +6,9 @@ export default function Footer(props){
             <h2>{props.resolvidos}/{props.cards.length} Concluídos</h2>
 
             <SCImgs>
-                {props.iconsStatus.map((icon, i) => {
-                    if(icon != "/src/assets/img/play.svg" || icon != "/assets/play-2b24aa69.svg"){
-                        return <img src={icon} alt="" />
+                {props.iconsStatusFooter.map((icon, i) => {
+                    if(icon != "/src/assets/img/play.svg" && icon != "/assets/play-2b24aa69.svg"){
+                        return <img key={i} src={icon} alt="" />
                     }
                 })}
             </SCImgs>

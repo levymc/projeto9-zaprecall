@@ -15,7 +15,9 @@ function App() {
 
   let [btnDesabilitado, setBtnDesabilitado] = useState(cards.map(() => false))
 
-  let [iconsStatus, setIconsStatus] = useState(cards.map(() => play))
+  let [iconsStatus, setIconsStatus] = useState(cards.map((_,i) => play))
+
+  let [iconsStatusFooter, setIconsStatusFooter] = useState(iconsStatus.map((icon, i) => icon))
 
   return (
     <>
@@ -25,6 +27,8 @@ function App() {
         <Topo />
 
         <Button 
+          iconsStatusFooter = {iconsStatusFooter}
+          setIconsStatusFooter = {setIconsStatusFooter}
           btnDesabilitado = {btnDesabilitado}
           setBtnDesabilitado = {setBtnDesabilitado}
           cards = {cards}
@@ -38,9 +42,9 @@ function App() {
         />
         
         <Footer 
+          iconsStatusFooter = {iconsStatusFooter}
           resolvidos = {resolvidos}
           cards = {cards}
-          iconsStatus = {iconsStatus}
         />
 
       </Container>
