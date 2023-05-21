@@ -7,7 +7,7 @@ export default function Footer(props){
 
             <SCImgs>
                 {props.iconsStatus.map((icon, i) => {
-                    if(icon != "/src/assets/img/play.svg"){
+                    if(icon != "/src/assets/img/play.svg" || icon != "/assets/play-2b24aa69.svg"){
                         return <img src={icon} alt="" />
                     }
                 })}
