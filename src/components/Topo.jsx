@@ -24,6 +24,7 @@ const SCTopo = styled.div`
     
     h2{
         font-family: 'Righteous';
+        cursor: pointer;
         font-style: normal;
         font-weight: 400;
         font-size: 36px;
@@ -31,5 +32,8 @@ const SCTopo = styled.div`
         transform: rotate(0.58deg);
         letter-spacing: -0.012em;
         color: #FFFFFF;
+    }
+    img{
+        cursor: pointer;
     }
 `

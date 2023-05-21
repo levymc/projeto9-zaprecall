@@ -30,10 +30,10 @@ export default function BtnFase3(props){
 
     const alterarFase = (index, novoValor) => {
         props.setFase(prevFase => {
-          const novoArray = [...prevFase]; // Cria uma cópia do array de estado atual
-          novoArray[index] = novoValor; // Atualiza o elemento desejado no novo array
+          const novoArray = [...prevFase];
+          novoArray[index] = novoValor; 
           console.log(novoArray)
-          return novoArray; // Retorna o novo array como o novo estado
+          return novoArray; 
         });
       };
     const alterarStatus = (index, novoValor) => {
@@ -57,7 +57,7 @@ export default function BtnFase3(props){
         props.setIconsStatus(prevStatus => {
           const novoArray = [...prevStatus];
           novoArray[index] = novoValor;
-          console.log(novoArray)
+        //   console.log(novoArray)
           return novoArray;
         });
       };
