@@ -34,7 +34,6 @@ function App() {
           cards = {cards}
           setRespostas = {setRespostas}
           status = {status}
-          data-test = "flashcard"
           resolvidos = {resolvidos}
           setResolvidos = {setResolvidos}
           iconsStatus = {iconsStatus}

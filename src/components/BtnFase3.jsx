@@ -77,7 +77,7 @@ export default function BtnFase3(props){
                     key = {i} 
                     id = {i}
                     status = {info.status}
-                    data-test = {props.dataTest}
+                    data-test = {info.dataTest}
                     onClick={() => {
                         alterarStatus(props.cardIndex, info.status)
                         alterarFase(props.cardIndex, 1)

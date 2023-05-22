@@ -26,7 +26,6 @@ export default function Button(props) {
         props.cards.map((card, i) => (
             fase[i] == 1 ?
                 <SCButton1
-                    
                     data-test="flashcard" 
                     key={i} 
                     status={props.status}
