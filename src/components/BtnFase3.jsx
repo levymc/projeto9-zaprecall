@@ -69,6 +69,14 @@ export default function BtnFase3(props){
           return novoArray;
         });
       };
+    const alteraIconInicial = (index, novoValor) => {
+        props.setIconInicial(prevStatus => {
+          const novoArray = [...prevStatus];
+          novoArray[index] = novoValor;
+          console.log(novoArray)
+          return novoArray;
+        });
+      };
 
     return (
         <>
@@ -84,8 +92,9 @@ export default function BtnFase3(props){
                         desabilitaButton(props.cardIndex, true)
                         alteraIcon(props.cardIndex, info.icon)
                         alteraIconFooter(props.resolvidos, info.icon)
+                        alteraIconInicial(props.cardIndex, info.dataTest)
                         props.setResolvidos(props.resolvidos+1)
-                        console.log(info.status)
+                        console.log(info.dataTest)
                     }}
                     >
                     {info.frase}

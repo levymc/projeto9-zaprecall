@@ -7,6 +7,8 @@ export default function Button(props) {
 
     const [fase, setFase] = useState(props.cards.map(() => 1))
 
+    const [iconInicial, setIconInicial] = useState(props.cards.map(() => 'play-btn'))
+
     let funcBtn1 = (card, i) => {
         console.log(card)
         const updatedFases = [...fase];
@@ -45,7 +47,7 @@ export default function Button(props) {
                         if(!props.btnDesabilitado[i]){funcBtn1(card, i)}
                         }} 
                         index={i} 
-                        data-test="play-btn" 
+                        data-test={iconInicial[i]}
                         src={props.iconsStatus[i]} 
                         alt="btnFase1" /></SCCanto>
                 </SCButton1>
@@ -62,6 +64,7 @@ export default function Button(props) {
                     <h2 data-test="flashcard-text" >{card.answer}</h2>
                     <SCFlex>
                         <BtnFase3 
+                            setIconInicial = {setIconInicial}
                             setIconsStatus = {props.setIconsStatus}
                             setIconsStatusFooter = {props.setIconsStatusFooter}
                             setBtnDesabilitado = {props.setBtnDesabilitado}
