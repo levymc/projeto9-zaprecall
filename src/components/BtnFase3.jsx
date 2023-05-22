@@ -9,19 +9,22 @@ export default function BtnFase3(props){
     const infos = [
         {
             frase: "Não lembrei",
-            dataTest: "no-icon",
+            dataTest: "no-btn",
+            dataTestInicial: "no-icon",
             status: "incorreto",
             icon: incorrectIcon,
         },
         {
             frase: "Quase não lembrei",
-            dataTest: "partial-icon",
+            dataTest: "partial-btn",
+            dataTestInicial: "partial-icon",
             status: "quase",
             icon: unknowIcon,
         },
         {
             frase: "Zap!",
-            dataTest: "zap-icon",
+            dataTest: "zap-btn",
+            dataTestInicial: "zap-icon",
             status: "correto",
             icon: correctIcon,
         },
@@ -92,7 +95,7 @@ export default function BtnFase3(props){
                         desabilitaButton(props.cardIndex, true)
                         alteraIcon(props.cardIndex, info.icon)
                         alteraIconFooter(props.resolvidos, info.icon)
-                        alteraIconInicial(props.cardIndex, info.dataTest)
+                        alteraIconInicial(props.cardIndex, info.dataTestInicial)
                         props.setResolvidos(props.resolvidos+1)
                         console.log(info.dataTest)
                     }}
