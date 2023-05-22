@@ -8,7 +8,12 @@ export default function Footer(props){
             <SCImgs>
                 {props.iconsStatusFooter.map((icon, i) => {
                     if(icon != "/src/assets/img/play.svg" && icon != "/assets/play-2b24aa69.svg"){
-                        return <img key={i} src={icon} alt="" />
+                        return <img 
+                                key={i} 
+                                src={icon} 
+                                alt="" 
+                                data-test = {icon == "/src/assets/img/incorrectIcon.svg" ? "no-icon" : icon == "/src/assets/img/correctIcon.svg" ? "zap-icon" : icon == "/src/assets/img/unknowIcon.svg" ? "partial-icon" : null}
+                                />
                     }
                 })}
             </SCImgs>
