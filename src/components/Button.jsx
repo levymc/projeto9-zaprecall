@@ -50,7 +50,7 @@ export default function Button(props) {
                         alt="btnFase1" /></SCCanto>
                 </SCButton1>
             : fase[i] == 2 ?
-                <SCButton2 key={i}>
+                <SCButton2 data-test="flashcard" key={i}>
                     <h2 data-test="flashcard-text" >{card.question}</h2>
                     <img data-test="turn-btn" onClick={() => {
                         funcVirar(card, i)
@@ -58,7 +58,7 @@ export default function Button(props) {
                 </SCButton2>
 
             : fase[i] == 3 ?
-                <SCButton3 key={i}>
+                <SCButton3 data-test="flashcard" key={i}>
                     <h2 data-test="flashcard-text" >{card.answer}</h2>
                     <SCFlex>
                         <BtnFase3 
